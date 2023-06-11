@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "516117637955",
+    "project_id": "fitchoices-879ca",
+    "storage_bucket": "fitchoices-879ca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:516117637955:android:d097edd1acc78fee2a9df6",
+        "android_client_info": {
+          "package_name": "com.example.fitchoices"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "516117637955-l0v3rsusmluq9ris2r8cnt1eb6c4eksp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwQvOSNsBwOaR9ww5AWpeSw0vmRmdHyw0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "516117637955-l0v3rsusmluq9ris2r8cnt1eb6c4eksp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

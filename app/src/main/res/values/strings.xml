@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">Fit Choices</string>
+    <string name="btnSignIn">Sign In</string>
+    <string name="password">*************</string>
+    <string name="hint_Email">johnsmith@email.com</string>
+    <string name="txtViewForgotPwd">Forgot Password?</string>
+    <string name="txtNoAccount">No Account?</string>
+    <string name="sign_up">Sign up</string>
+    <string name="txtSign_in">Login</string>
+    <string name="txtSignUp">SignUp</string>
+    <string name="btn_register">Register</string>
+    <string name="txtVRegister">Register</string>
+    <string name="txtViewHaveAnAcct">Already Have an Account?</string>
+    <string name="username">User name</string>
+    <string name="email2">Email Address</string>
+    <string name="txtForgotPassword">Forgot Password</string>
+    <string name="txtViewText">Please enter your new password below to receive password reset link </string>
+    <string name="hintTxtEmailReset">Enter your new password</string>
+    <string name="btnResetPwd">Reset Password</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="barcode_text">Barcode Text</string>
+    <string name="google">continue with Google</string>
+    <string name="welcomeMsg">Welcome to</string>
+    <string name="txtName">Fit Choices</string>
+    <string name="newbie">I am new</string>
+    <string name="already_used_fit_choices">Already used Fit choices?</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="header">Let\'s setup your profile</string>
+    <string name="next">Next</string>
+    <string name="dob">Date Of Birth:</string>
+    <string name="height">Height:</string>
+    <string name="why">why we ask</string>
+    <string name="weight">Weight:</string>
+    <string name="gender">Gender:</string>
+    <string name="txtTarget">Enter your target weight</string>
+    <string name="image">image</string>
+    <string-array name="weightOptions">
+        <item>kg</item>
+        <item>lb</item>
+    </string-array>
+    <string-array name="heightOptions">
+        <item>cm</item>
+        <item>Inches</item>
+    </string-array>
+    <string name="genderWhy">please enter your sex. It is
+    important for calorie Budget-female bodies need fewer calories.</string>
+    <string name="heightWhy">The taller you are, the more calories your body needs.</string>
+    <string name="dobWhy">Date of birth will be used to calculate your age on any date-
+    calorie and nutrient needs change with age.</string>
+</resources>
