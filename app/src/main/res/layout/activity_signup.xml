@@ -6,14 +6,15 @@
     android:layout_height="match_parent"
     android:background="@color/green50"
     tools:context=".SignupActivity">
+
     <TextView
         android:id="@+id/txtSignIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:text="@string/txtVRegister"
+        android:text="@string/title"
         android:textColor="@color/green900"
-        android:textSize="36sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -120,10 +121,10 @@
         android:id="@+id/btn_Reset"
         android:layout_width="349dp"
         android:layout_height="50dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="75dp"
         android:background="@drawable/rounded_corner"
-        android:text="@string/btn_register"
         android:onClick="registerNewUser"
+        android:text="@string/btn_register"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/editTxtConfirmPwd"
         app:layout_constraintStart_toStartOf="@+id/editTxtConfirmPwd"
@@ -138,30 +139,7 @@
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="@+id/btn_Reset"
         app:layout_constraintStart_toStartOf="@+id/btn_Reset"
-        app:layout_constraintTop_toBottomOf="@+id/btn_Reset">
-
-        <TextView
-            android:id="@+id/txtViewHaveAnAcct"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="5dp"
-            android:paddingTop="5dp"
-            android:paddingEnd="10dp"
-            android:shadowColor="@color/green900"
-            android:text="@string/txtViewHaveAnAcct"
-            android:textColor="@color/blue"
-            android:textColorLink="@color/green900" />
-
-        <TextView
-            android:id="@+id/txtViewSignIn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:shadowColor="@color/green900"
-            android:text="@string/txtSign_in"
-            android:textColor="@color/red"
-            android:textColorLink="@color/green900" />
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/btn_Reset"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

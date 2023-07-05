@@ -35,16 +35,11 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(view);
 
         mAuth = FirebaseAuth.getInstance();
-        email = binding.editTxtEmail.getText().toString();
-        password = binding.editTextPwd.getText().toString();
-        binding.btnSignIn2.setEnabled(false);
+       binding.btnSignIn2.setEnabled(false);
 
-        binding.editTxtEmail.addTextChangedListener(mTextWatcher);
-        binding.editTextPwd.addTextChangedListener(mTextWatcher);
+        binding.textInputEmail.addTextChangedListener(mTextWatcher);
+        binding.textInputPassword.addTextChangedListener(mTextWatcher);
 
-    binding.txtViewSignupLink.setOnClickListener(v -> {
-            startActivity(new Intent(this, SignupActivity.class));
-        });
 
         binding.txtViewForgotPwd.setOnClickListener(v -> {
             startActivity(new Intent(this, PasswordReset.class));
@@ -53,20 +48,20 @@ public class LoginActivity extends AppCompatActivity {
         binding.btnSignIn2.setOnClickListener(v -> {
 
             if(email.isEmpty()){
-                binding.editTxtEmail.setError("Email is empty");
-                binding.editTxtEmail.requestFocus();
+                binding.textInputEmail.setError("Email is empty");
+                binding.textInputEmail.requestFocus();
                 return;
             }
             if(password.isEmpty()){
-                binding.editTextPwd.setError("Password is empty");
-                binding.editTextPwd.requestFocus();
+                binding.textInputPassword.setError("Password is empty");
+                binding.textInputPassword.requestFocus();
                 return;
             }
 
     mAuth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this, task -> {
                 if (task.isSuccessful()) {
-                   startActivity(new Intent(LoginActivity.this, MainActivity2.class));
+                   startActivity(new Intent(LoginActivity.this, Setup.class));
                     FirebaseUser user = mAuth.getCurrentUser();
                     assert user != null;
                     String userName = user.getDisplayName();
@@ -92,8 +87,8 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            email = binding.editTxtEmail.getText().toString();
-            password = binding.editTextPwd.getText().toString();
+            email = binding.textInputEmail.getText().toString();
+            password = binding.textInputPassword.getText().toString();
             binding.btnSignIn2.setEnabled(!email.isEmpty() && !password.isEmpty());
         }
 

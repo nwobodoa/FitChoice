@@ -3,14 +3,13 @@ package com.example.fitchoices;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
 import com.example.fitchoices.databinding.ActivityWelcomeBinding;
 
-public class welcome extends AppCompatActivity {
+public class Welcome extends AppCompatActivity {
     private ActivityWelcomeBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +25,11 @@ public class welcome extends AppCompatActivity {
         binding.videoView.start();
 
         binding.videoView.setOnPreparedListener(mp -> mp.setLooping(true));
-        binding.btnNew.setOnClickListener(v -> startActivity(new Intent(welcome.this,setUp.class)));
-        binding.btnSignIn.setOnClickListener(v -> startActivity(new Intent(welcome.this,LoginActivity.class)));
+        binding.btnNew.setOnClickListener(v ->{
+            startActivity(new Intent(Welcome.this, SignupActivity.class));
+
+        });
+        binding.btnSignIn.setOnClickListener(v -> startActivity(new Intent(Welcome.this,LoginActivity.class)));
     }
 
     @Override

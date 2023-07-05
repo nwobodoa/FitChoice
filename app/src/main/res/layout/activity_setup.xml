@@ -5,20 +5,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/green50"
-    tools:context=".setUp">
+    android:textAlignment="center"
+    tools:context=".Setup">
 
-    <TextView
-        android:id="@+id/txtProfile"
+    <EditText
+        android:id="@+id/editTextWeight"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="6dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:minHeight="48dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/spinnerWeight"
+        app:layout_constraintHorizontal_bias="0.218"
+        app:layout_constraintStart_toEndOf="@+id/Weight"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+    <EditText
+        android:id="@+id/editTextHeight"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:minHeight="48dp"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/height"
+        app:layout_constraintTop_toBottomOf="@+id/editTextWeight" />
+
+    <EditText
+        android:id="@+id/editDateOfBirth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="59dp"
-        android:text="@string/header"
-        android:textColor="@color/green900"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="25dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/select_dob"
+        android:inputType="date"
+        android:minHeight="48dp"
+        android:onClick="showDatePickerDialog"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/txtViewAge"
+        app:layout_constraintTop_toBottomOf="@+id/editTextHeight" />
 
     <LinearLayout
         android:id="@+id/linearLayout3"
@@ -32,18 +63,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtProfile">
 
-        <TextView
-            android:id="@+id/txtGender"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.2"
-            android:gravity="center_vertical"
-            android:text="@string/gender"
-            android:textColor="@color/green900"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
         <RadioGroup
+            android:id="@+id/rdGroup"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight=".6"
@@ -56,6 +77,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:minHeight="48dp"
+                android:onClick="onRadioButtonClicked"
                 android:text="@string/female"
                 android:textColor="@color/green900" />
 
@@ -64,10 +86,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="onRadioButtonClicked"
                 android:text="@string/male"
                 android:textColor="@color/green900" />
 
         </RadioGroup>
+
+        <TextView
+            android:id="@+id/txtGender"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:gravity="center_vertical"
+            android:text="@string/gender"
+            android:textColor="@color/green900"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtGenderWhy"
@@ -83,6 +117,47 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/spinnerWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="200dp"
+        android:dropDownWidth="wrap_content"
+        android:entries="@array/weightOptions"
+        android:gravity="right|end"
+        android:minHeight="48dp"
+        android:text="kg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        tools:ignore="RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/spinnerHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:dropDownWidth="wrap_content"
+        android:entries="@array/heightOptions"
+        android:gravity="center|end"
+        android:minHeight="48dp"
+        android:text="cm"
+        app:layout_constraintStart_toEndOf="@+id/editTextHeight"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerWeight" />
+
+    <TextView
+        android:id="@+id/txtProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="59dp"
+        android:text="@string/header"
+        android:textColor="@color/green900"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/Weight"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -96,74 +171,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
-    <EditText
-        android:id="@+id/editTextWeight"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="6dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toStartOf="@+id/spinnerWeight"
-        app:layout_constraintHorizontal_bias="0.218"
-        app:layout_constraintStart_toEndOf="@+id/Weight"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
-
-    <EditText
-        android:id="@+id/editTextHeight"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="18dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:minHeight="48dp"
-        app:layout_constraintStart_toEndOf="@+id/height"
-        app:layout_constraintTop_toBottomOf="@+id/editTextWeight" />
-
-    <EditText
-        android:id="@+id/editTextAge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:inputType="date"
-        android:minHeight="48dp"
-        app:layout_constraintStart_toEndOf="@+id/txtViewAge"
-        app:layout_constraintTop_toBottomOf="@+id/editTextHeight" />
-
-    <Spinner
-        android:id="@+id/spinnerWeight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="88dp"
-        android:dropDownWidth="wrap_content"
-        android:entries="@array/weightOptions"
-        android:gravity="right|end"
-        android:minHeight="48dp"
-        android:spinnerMode="dropdown"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-        tools:ignore="RtlHardcoded" />
-
-    <Spinner
-        android:id="@+id/spinnerHeight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:dropDownWidth="wrap_content"
-        android:entries="@array/heightOptions"
-        android:gravity="center|end"
-        android:minHeight="48dp"
-        android:spinnerMode="dropdown"
-        app:layout_constraintStart_toEndOf="@+id/editTextHeight"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerWeight" />
-
     <TextView
         android:id="@+id/txtHeightWhy"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="16dp"
@@ -180,9 +190,9 @@
 
     <TextView
         android:id="@+id/txtAgeWhy"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="55dp"
         android:layout_marginEnd="16dp"
         android:layout_weight="1"
         android:gravity="center"
@@ -191,7 +201,7 @@
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editTextAge"
+        app:layout_constraintStart_toEndOf="@+id/editDateOfBirth"
         app:layout_constraintTop_toBottomOf="@+id/txtHeightWhy" />
 
     <TextView
@@ -226,12 +236,15 @@
         android:id="@+id/showWhy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:textAlignment="center"
         android:textColor="@color/blue"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAge" />
+        app:layout_constraintTop_toBottomOf="@+id/tartgetWeight" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnNext"
@@ -247,5 +260,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/showWhy"
         app:layout_constraintVertical_bias="0.362" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:text="Target Weight:"
+        android:textColor="@color/green900"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewAge" />
+
+    <EditText
+        android:id="@+id/tartgetWeight"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/editDateOfBirth" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="41dp"
+        android:text="kg"
+        app:layout_constraintStart_toEndOf="@+id/tartgetWeight"
+        app:layout_constraintTop_toBottomOf="@+id/editDateOfBirth" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
